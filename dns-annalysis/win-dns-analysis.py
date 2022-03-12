@@ -2,10 +2,12 @@ from calendar import month
 import os
 import re
 import os.path #文件夹遍历函数  
-from time import sleep
+from time import *
 import datetime
 import logging
 import sys
+from qqwry import QQwry
+
 
 #now_time = datetime.datetime.now()
 #year =str(now_time.strftime('%Y'))
@@ -32,7 +34,7 @@ def pinjie():
         f.write('\n')
     #关闭文件
     f.close()
-    sleep(2)
+    sleep(1)
     logging.basicConfig(
         filename='D:/Users/Worker/Desktop/yuliao/log/a.log',
         level=logging.DEBUG,
@@ -49,10 +51,11 @@ def tongji(file_path):
     for i in log:
         for ip in find.findall(i):
             count[ip] = count.get(ip,1) + 1
+           
     
 def jisuan():
     num = 0
-    R=count.items()
+    R=count.items()       
     with open('D:/Users/Worker/Desktop/yuliao/jieguo/result2.txt','a') as file0:
         for i in R:
             if i[1] > 0:
@@ -67,11 +70,58 @@ def jisuan():
     #print('符合数量: %s'%(num))
     logging.debug('符合数量: %s'%(num))
 
+def iplist():
+    R=count.items()  
+    #f = open("D:/Users/Worker/Desktop/yuliao/jieguo/result3.txt","w")
+    with open('D:/Users/Worker/Desktop/yuliao/jieguo/result3.txt','a') as file0:
+        for key,values in R:
+            print(key,file = file0)
+    logging.basicConfig(
+        filename='D:/Users/Worker/Desktop/yuliao/log/a.log',
+        level=logging.DEBUG,
+        format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]'
+    )
+    logging.debug('ip表制作完成')
+'''
+    with open('D:/Users/Worker/Desktop/yuliao/jieguo/result3.txt','a') as file0:
+        for i in R:
+            if i[1] > 0:
+                print(key,file=file0)
+                numip+=1
+    logging.basicConfig(
+        filename='D:/Users/Worker/Desktop/yuliao/log/a.log',
+        level=logging.DEBUG,
+        format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]'
+    )
+    #print('符合数量: %s'%(num))
+    logging.debug('总计ip: %s'%(numip))
+'''
+#ip地址归属
+def ip_home():
+    q = QQwry()
+    q.load_file('qqwry.dat')
+    with open('D:/Users/Worker/Desktop/yuliao/jieguo/result3.txt','r+') as file2:
+         with open('D:/Users/Worker/Desktop/yuliao/jieguo/result4.txt','a+') as file3:
+             for i in file2.readlines():
+                 i = i.strip()
+                 res = q.lookup(i)
+                 print(i+"  "+res[0]+res[1],file=file3)
+             print("--------------",file=file3)
+    logging.basicConfig(
+        filename='D:/Users/Worker/Desktop/yuliao/log/a.log',
+        level=logging.DEBUG,
+        format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]'
+    )
+    logging.debug('归属地分析完成')      
+
+
 if __name__ == '__main__':
     pinjie()
     #num = 0
     tongji(r'D:/Users/Worker/Desktop/yuliao/jieguo/result.txt')
     jisuan()
+    iplist()
+    ip_home()
     '''
     R=count.items()
     with open('D:/Users/Worker/Desktop/yuliao/jieguo/result2.txt','a') as file0:
