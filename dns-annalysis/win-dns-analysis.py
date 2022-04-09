@@ -23,7 +23,7 @@ def pinjie():
     dirs = 'D:/Users/Worker/Desktop/yuliao/jieguo'
     if not os.path.exists(dirs):
         os.makedirs(dirs)
-    sleep(1)
+
     f=open('D:/Users/Worker/Desktop/yuliao/jieguo/result.txt','w')
 #先遍历文件名
     for filename in filenames:
@@ -34,7 +34,7 @@ def pinjie():
         f.write('\n')
     #关闭文件
     f.close()
-    sleep(1)
+
     logging.basicConfig(
         filename='D:/Users/Worker/Desktop/yuliao/log/a.log',
         level=logging.DEBUG,
@@ -98,15 +98,19 @@ def iplist():
 '''
 #ip地址归属
 def ip_home():
+    R = count.items()
     q = QQwry()
     q.load_file('qqwry.dat')
     with open('D:/Users/Worker/Desktop/yuliao/jieguo/result3.txt','r+') as file2:
-         with open('D:/Users/Worker/Desktop/yuliao/jieguo/result4.txt','a+') as file3:
-             for i in file2.readlines():
-                 i = i.strip()
-                 res = q.lookup(i)
-                 print(i+"  "+res[0]+res[1],file=file3)
-             print("--------------",file=file3)
+        with open('D:/Users/Worker/Desktop/yuliao/jieguo/result4.txt','a+') as file3:
+            for i in file2.readlines():
+                i = i.strip()
+                res = q.lookup(i)
+                for key,values in R:
+                    print(i+"  "+res[0]+res[1]+str(values),file=file3)
+                
+                 
+               #print("--------------",file=file3)
     logging.basicConfig(
         filename='D:/Users/Worker/Desktop/yuliao/log/a.log',
         level=logging.DEBUG,
@@ -122,12 +126,3 @@ if __name__ == '__main__':
     jisuan()
     iplist()
     ip_home()
-    '''
-    R=count.items()
-    with open('D:/Users/Worker/Desktop/yuliao/jieguo/result2.txt','a') as file0:
-        for i in R:
-            if i[1] > 0:
-                print(i,file=file0)
-                num+=1
-    print('符合数量: %s'%(num))
-    '''
