@@ -27,12 +27,14 @@
           <widget class="QLabel" name="label_mtrip">
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>10</pointsize>
             </font>
            </property>
            <property name="text">
             <string>Mtr机器ip：</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -56,12 +58,17 @@
           <widget class="QLabel" name="label_port">
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>10</pointsize>
             </font>
            </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
            <property name="text">
             <string>端口：</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -89,12 +96,14 @@
           <widget class="QLabel" name="label_name">
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>10</pointsize>
             </font>
            </property>
            <property name="text">
             <string>用户名：</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -128,12 +137,14 @@
           <widget class="QLabel" name="label_password">
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>10</pointsize>
             </font>
            </property>
            <property name="text">
             <string>密码：</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -167,12 +178,14 @@
           <widget class="QLabel" name="label_private">
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>10</pointsize>
             </font>
            </property>
            <property name="text">
             <string>私钥：</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -206,12 +219,14 @@
           <widget class="QLabel" name="label_province">
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>10</pointsize>
             </font>
            </property>
            <property name="text">
             <string>省份地区：</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -245,12 +260,14 @@
           <widget class="QLabel" name="label_file">
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>10</pointsize>
             </font>
            </property>
            <property name="text">
             <string>文件名：</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -284,12 +301,14 @@
           <widget class="QLabel" name="label_ip">
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>10</pointsize>
             </font>
            </property>
            <property name="text">
             <string>ip：</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -398,9 +417,7 @@
            </property>
            <property name="font">
             <font>
-             <family>微软雅黑</family>
              <pointsize>28</pointsize>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
